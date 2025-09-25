@@ -30,7 +30,9 @@ WeatherDataAnalyzer/
 │   └── app.py              # Streamlit web interface
 │
 ├── requirements.txt        # Python dependencies
+|
 ├── README.md               # Project documentation
+|
 └── .env                    # Environment variables
 ```
 
