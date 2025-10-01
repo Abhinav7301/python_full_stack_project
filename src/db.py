@@ -13,7 +13,7 @@ if SUPABASE_URL and SUPABASE_KEY:
 
 #create task
     def insert_record(day,temperature,category):
-        data = {"data":day,"temperature":temperature,"category":category}
+        data = {"day":day,"temperature":temperature,"category":category}
         return supabase.table("WeatherData").insert(data).execute()
     
     def fetch_records():
@@ -31,6 +31,7 @@ if SUPABASE_URL and SUPABASE_KEY:
 else:
     import sqlite3
     conn = sqlite3.connect("weather.db", check_same_thread=False)
+    conn.row_factory = sqlite3.Row
     conn.execute("""
     CREATE TABLE IF NOT EXISTS WeatherData(
                  id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -72,4 +73,3 @@ else:
         conn.execute("DELETE FROM WeatherData WHERE id = ?", (record_id,))
         conn.commit()
         return {"message": f"Record {record_id} deleted successfully"}
-
