@@ -9,7 +9,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.logic import TaskManager
 
 # ----------------------------- App Setup -----------------------------
-app = FastAPI(title="Weather Data Analyzer", version="1.0")
+app = FastAPI(title="Weather Data Analyzer", version="1.0", debug=True)
 
 # Allow Frontend (Streamlit/React) to call the API
 app.add_middleware(
