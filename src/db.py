@@ -3,11 +3,12 @@ from dotenv import load_dotenv
 
 # Load environment
 load_dotenv()
+USE_SUPABASE = os.getenv("USE_SUPABASE", "0") == "1"
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 supabase = None
-if SUPABASE_URL and SUPABASE_KEY:
+if USE_SUPABASE and SUPABASE_URL and SUPABASE_KEY:
     try:
         from supabase import create_client
         supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
