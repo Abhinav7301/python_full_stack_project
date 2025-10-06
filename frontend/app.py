@@ -5,7 +5,7 @@ import requests
 # -----------------------------
 # API base URL
 # -----------------------------
-API_URL = "http://127.0.0.1:8000"
+API_URL = "https://python-full-stack-project-1.onrender.com"
 
 # -----------------------------
 # Page Setup
